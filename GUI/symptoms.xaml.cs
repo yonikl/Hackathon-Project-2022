@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace GUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for symptoms.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class symptoms : Window
     {
-        public MainWindow()
+        public symptoms()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            new symptoms().Show();
-            this.Close();   
         }
     }
 }
