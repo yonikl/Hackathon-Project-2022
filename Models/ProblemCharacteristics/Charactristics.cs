@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models;
-
-public class Jasmines
+namespace Models.ProblemCharacteristics
 {
-
+    internal class Charactristics
+    {
+    }
 }
