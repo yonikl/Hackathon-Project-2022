@@ -2,7 +2,7 @@
 
 namespace Models;
 
-internal class Adrass
+public class Adrass
 {
     
 }
