@@ -63,7 +63,7 @@
             <ComboBoxItem Content="דופק מהיר"/>
             <ComboBoxItem Content="דופק מהיר וחלש"/>
         </ComboBox>
-        <Button Content="Button" HorizontalAlignment="Center"  Grid.Row="10" VerticalAlignment="Top" Margin="0,75,0,0" Width="164" Height="30" Click="Button_Click"/>
+        <Button Content="אישור" HorizontalAlignment="Center"  Grid.Row="10" VerticalAlignment="Top" Margin="0,75,0,0" Width="164" Height="30" Click="Button_Click" FontSize="14" FontWeight="Bold"/>
 
 
         <Grid.Resources>

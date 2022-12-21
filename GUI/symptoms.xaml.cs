@@ -223,13 +223,6 @@ namespace GUI
             symptomsList.Remove(nameOfCheckBoxPEN[insexCohise]);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            foreach (var item in symptomsList)
-            {
-                MessageBox.Show(item.ToString());
-            }
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

@@ -12,7 +12,7 @@ public class FromDb
     public FromDb()
     {
         IDictionary<string, int[]?> Distribution = new Dictionary<string, int[]?>();
-        run_cmd();
+        
         string json = File.ReadAllText("C:\\Users\\Yoni\\RiderProjects\\Hackathon-Project-2022\\Hackathon-Project-2022\\Data Analysis\\xl.txt");
         Db = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(json)!;
         foreach (var item in Db)
@@ -41,24 +41,5 @@ public class FromDb
 
     }
 
-    private void run_cmd()
-    {
-
-        string fileName =
-            @"C:\Users\Yoni\RiderProjects\Hackathon-Project-2022\Hackathon-Project-2022\Data Analysis\ParseXlsx.py";
-
-        Process p = new Process();
-        p.StartInfo =
-            new ProcessStartInfo(@"C:\Users\Yoni\AppData\Local\Programs\Python\Python310\python.exe", fileName)
-            {
-                RedirectStandardOutput = true,
-                UseShellExecute = false,
-                CreateNoWindow = true
-            };
-        p.Start();
-
-        string output = p.StandardOutput.ReadToEnd();
-        p.WaitForExit();
-        Console.WriteLine(output);
-    }
+  
 }

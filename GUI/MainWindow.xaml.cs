@@ -41,11 +41,11 @@ namespace GUI
         {
             if(CityName_Box.Text == "")
                 MessageBox.Show("חסר עיר מגורים", "ERROR", MessageBoxButton.OK, MessageBoxImage.Information);
-            if (StreetName_Box.Text == "")
+            else if (StreetName_Box.Text == "")
                 MessageBox.Show("חסר שם רחוב", "ERROR", MessageBoxButton.OK, MessageBoxImage.Information);
-            if (HouseNumber_Box.Text == "")
+            else if (HouseNumber_Box.Text == "")
                 MessageBox.Show("חסר מספר בית", "ERROR", MessageBoxButton.OK, MessageBoxImage.Information);
-            if (Sex_Box.Text == "")
+            else if (Sex_Box.Text == "")
                 MessageBox.Show("חסר מגדר", "ERROR", MessageBoxButton.OK, MessageBoxImage.Information);
             else
             {
