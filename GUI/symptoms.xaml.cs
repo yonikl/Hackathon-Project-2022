@@ -233,5 +233,12 @@ namespace GUI
             }
             MessageBox.Show(d.Question);
         }
+            var d = analysis.TryToDiagnose(symptomsList);
+            while(!d.IsFinalAnswer)
+            {
+                MessageBox.Show(d.Question);
+            }
+            MessageBox.Show(d.Question);
+        }
     }
 }

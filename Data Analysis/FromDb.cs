@@ -8,6 +8,7 @@ public class FromDb
 {
     public IDictionary<string, List<string>> Db { get; }
     public IDictionary<string,int[]?> Distribution { get; }
+    public List<string> DistributionPriority { get; }
 
     public FromDb()
     {
