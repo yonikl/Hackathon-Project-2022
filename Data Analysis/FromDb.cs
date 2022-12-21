@@ -14,13 +14,17 @@ public class FromDb
     {
         IDictionary<string, int[]?> Distribution = new Dictionary<string, int[]?>();
         
-        string json = File.ReadAllText("C:\\Users\\Yoni\\RiderProjects\\Hackathon-Project-2022\\Hackathon-Project-2022\\Data Analysis\\xl.txt");
+        string json = File.ReadAllText("C:\\Users\\Daniel\\source\\repos\\yonikl\\Hackathon-Project-2022\\Data Analysis\\xl.txt");
         Db = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(json)!;
         foreach (var item in Db)
         {
             Console.WriteLine(item.Key);
             foreach (var i in item.Value)
             {
+                if(Distribution.Keys.Contains(i))
+                {
+                    continue;
+                }
                 Distribution.Add(i,new int[]{0,0});
             }
         }
