@@ -39,21 +39,20 @@ namespace GUI
 
         private void EndOfDetails_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            if(CityName_Box.Text == "" || StreetName_Box.Text == "" || HousNumber_Box.Text == "")
-            {
-                MessageBox.Show("חסר פרטים חייונים", "ERROR", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-
+            if(CityName_Box.Text == "")
+                MessageBox.Show("חסר עיר מגורים", "ERROR", MessageBoxButton.OK, MessageBoxImage.Information);
+            if (StreetName_Box.Text == "")
+                MessageBox.Show("חסר שם רחוב", "ERROR", MessageBoxButton.OK, MessageBoxImage.Information);
+            if (HouseNumber_Box.Text == "")
+                MessageBox.Show("חסר מספר בית", "ERROR", MessageBoxButton.OK, MessageBoxImage.Information);
+            if (Sex_Box.Text == "")
+                MessageBox.Show("חסר מגדר", "ERROR", MessageBoxButton.OK, MessageBoxImage.Information);
             else
             {
                 new symptoms().Show();
                 this.Close();
             }
-            */
-            new symptoms().Show();
-            this.Close();
-
+            
         }
     }
 }
