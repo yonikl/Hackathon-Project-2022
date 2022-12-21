@@ -8,12 +8,12 @@
         ResizeMode="NoResize"
         Title="symptoms" Height="450" Width="800" Language="he-IL">
 
-    <Grid x:Name="options">
+    <Grid x:Name="options" Margin="0,-3,0,3">
         <Grid.Background>
             <ImageBrush ImageSource="/Symptoms.jpg" Opacity="0.5"/>
         </Grid.Background>
         <Grid.RowDefinitions>
-            
+
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -24,7 +24,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-    
+
         </Grid.RowDefinitions>
         <Label Content="סימפטומים" HorizontalAlignment="Right" Height="55" FontWeight="Bold" FontSize="16" Margin="0,10" Grid.Row="0"/>
         <CheckBox x:Name="ChestPain" Content="כאבים בחזה" Checked="ChestPain_CheckBox_Checked" HorizontalAlignment="Right" Margin="5,2" FontWeight="Bold" FontSize="12" Grid.Row="1" Unchecked="canselChoise_ChestPain"/>
@@ -34,6 +34,7 @@
         <CheckBox x:Name="Paleness" Content="חיוורון" Checked="Paleness_CheckBox_Checked" HorizontalAlignment="Right" Margin="5,2" FontWeight="Bold" FontSize="12" Grid.Row="5"/>
         <CheckBox x:Name="NauseaAndVomiting" Content="בחילות והקאות" Checked="NauseaAndVomiting_CheckBox_Checked" HorizontalAlignment="Right" Margin="5,2" FontWeight="Bold" FontSize="12" Grid.Row="6"/>
         <CheckBox x:Name="Palpitations" Content="דפיקות לב" Checked="Palpitations_CheckBox_Checked" HorizontalAlignment="Right" Margin="5,2" FontWeight="Bold" FontSize="12" Grid.Row="7"/>
+        <Button Content="אשר"  HorizontalAlignment="Left" Margin="285,10,0,0" Grid.Row="8" VerticalAlignment="Top" Height="27" Width="172" Click="Button_Click"/>
         <Grid.Resources>
             <Style TargetType="CheckBox">
                 <Setter Property="FlowDirection" Value="RightToLeft"/>
@@ -41,13 +42,13 @@
                     <Setter.Value>
                         <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
                     </Setter.Value>
-                
+
                 </Setter>
             </Style>
         </Grid.Resources>
-        
+
 
 
     </Grid>
- 
+
 </Window>
