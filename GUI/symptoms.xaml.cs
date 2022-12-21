@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Data_Analysis;
 
 namespace GUI
 {
@@ -21,6 +22,7 @@ namespace GUI
     /// </summary>
     public partial class symptoms : Window
     {
+        Analysis analysis = new Analysis();
         public symptoms()
         {
             InitializeComponent();
@@ -227,6 +229,16 @@ namespace GUI
             {
                 MessageBox.Show(item.ToString());
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var d = analysis.TryToDiagnose(symptomsList);
+            while(!d.IsFinalAnswer)
+            {
+                MessageBox.Show(d.Question);
+            }
+            MessageBox.Show(d.Question);
         }
     }
 }

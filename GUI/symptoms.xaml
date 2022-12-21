@@ -8,7 +8,7 @@
         ResizeMode="NoResize"
         Title="symptoms" Height="450" Width="800" Language="he-IL">
 
-    <Grid x:Name="options">
+    <Grid x:Name="options" Margin="0,-3,0,3">
         <Grid.Background>
             <ImageBrush ImageSource="/Symptoms.jpg" Opacity="0.5"/>
         </Grid.Background>
@@ -24,8 +24,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-
+    
         </Grid.RowDefinitions>
         <Label Content="סימפטומים" HorizontalAlignment="Right" Height="55" FontWeight="Bold" FontSize="16" Margin="0,10" Grid.Row="0"/>
         <CheckBox x:Name="ChestPain" Content="כאבים בחזה" Checked="ChestPain_CheckBox_Checked" HorizontalAlignment="Right" Margin="5,2" FontWeight="Bold" FontSize="12" Grid.Row="1" Unchecked="cancelChoise_ChestPain"/>
