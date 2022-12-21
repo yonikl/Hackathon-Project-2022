@@ -6,32 +6,41 @@ namespace Data_Analysis;
 
 public class Analysis
 {
-    private readonly FromDb _db = new FromDb();
+    private FromDb? _db;
     private List<string>? _symptoms;
-    private IDictionary<string, int>? _prediction;
+    private IDictionary<string, double>? _prediction;
+    // private List<string>? _deniedSymptoms;
+
+    public Analysis()
+    {
+        _db = new FromDb();
+    }
     public Amswer TryToDiagnose(List<string> symptoms)
     {
+        
         this._symptoms = symptoms;
-        _prediction = new Dictionary<string, int>();
-        foreach(var item in _db.Db) // initialize
+        _prediction = new Dictionary<string, double>();
+        foreach(var item in _db!.Db) // initialize
         {
             _prediction.Add(item.Key, 0);
         }
+
 
         foreach (var item in _db.Db)
         {
             foreach (var symptom in symptoms)
             {
-                if (item.Value.Contains(symptom))
+                if (item.Value.Contains(symptom.ToLower()))
                 {
                     _prediction[item.Key]++;
                 }
             }
 
-            foreach (var predict in _prediction)
-            {
-                _prediction[item.Key] /= _db.Db[item.Key].Count;
-            }
+
+        }
+        foreach (var predict in _prediction)
+        {
+            _prediction[predict.Key] /= _db.Db[predict.Key].Count;
         }
 
         Tuple<bool, string?> isTherePrediction = IsTherePrediction()!;
@@ -46,6 +55,8 @@ public class Analysis
         }
 
     }
+    
+    
 
     private Tuple<bool, string?>? IsTherePrediction()
     {
@@ -55,26 +66,23 @@ public class Analysis
             {
                 return new Tuple<bool, string?>(true, item.Key);
             }
-            else
-            {
-                return new Tuple<bool, string?>(false, null);
-            }
+
         }
 
-        return null;
+        return new Tuple<bool, string?>(false, null);
     }
 
     private string NextQuestion()
     {
         
-        foreach (var item in _db.Distribution)
+        foreach (var item in _db.DistributionPriority)
         {
-            if (_symptoms!.Contains(item.Key))
+            if (_symptoms!.Contains(item))
             {
                 continue;
             }
 
-            return item.Key;
+            return item;
         }
 
         return "";

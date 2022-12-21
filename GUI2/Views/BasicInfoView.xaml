@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="GUI2.Views.BasicInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:GUI2"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="14"
+             mc:Ignorable="d"
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="65*"/>
+            <ColumnDefinition Width="40*"/>
+        </Grid.ColumnDefinitions>
+        <materialDesign:PackIcon Kind="Account" Grid.Row="1" Width="50" Height="50" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"></materialDesign:PackIcon>
+        <materialDesign:PackIcon Grid.Row="7" Grid.Column="1" Kind="GenderMaleFemale" Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <TextBox Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="שם"
+                 materialDesign:HintAssist.HelperText="שדה זה הינו חובה"></TextBox>
+        <TextBox Grid.Row="2" materialDesign:HintAssist.Hint="רחוב"
+                 materialDesign:HintAssist.HelperText="שדה זה הינו חובה"></TextBox>
+        <TextBox Grid.Row="3" materialDesign:HintAssist.Hint="מספר בית"
+                 materialDesign:HintAssist.HelperText="שדה זה הינו חובה"></TextBox>
+        <TextBox Grid.Row="4" materialDesign:HintAssist.Hint="עיר"
+                 materialDesign:HintAssist.HelperText="שדה זה הינו חובה"></TextBox>
+        <TextBox Grid.Row="5" materialDesign:HintAssist.Hint="גיל"
+                 materialDesign:HintAssist.HelperText=""></TextBox>
+        <TextBox Grid.Row="6" materialDesign:HintAssist.Hint="טלפון"></TextBox>
+        <ListBox Grid.Row="7" FlowDirection="RightToLeft" Margin="50"
+            Style="{StaticResource MaterialDesignChoiceChipListBox}"
+            x:Name="RadioButtonGroupChoiceChip">
+            <ListBoxItem
+                Content="זכר" />
+            <ListBoxItem
+                Content="נקבה" />
+            
+        </ListBox>
+        
+    </Grid>
+    <UserControl.Resources>
+        <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
+            <Setter Property="MaxWidth" Value="500"></Setter>
+            <Setter Property="MinWidth" Value="400"></Setter>
+            <Setter Property="Margin" Value="50"></Setter>
+            <Setter Property="FlowDirection" Value="RightToLeft"></Setter>
+            <Setter Property="FontSize" Value="30"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+        </Style>
+        <Style TargetType="materialDesign:PackIcon">
+            <Setter Property=""></Setter>
+        </Style>
+    </UserControl.Resources>
+</UserControl>
