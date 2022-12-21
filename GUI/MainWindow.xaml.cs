@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Asn1.Cmp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,12 +24,36 @@ namespace GUI
         public MainWindow()
         {
             InitializeComponent();
+            setSex_ComboBox();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Sex_Box_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+        }
+        public void setSex_ComboBox()
+        {
+            string[] choises = { "זכר", "נקבה" };
+            for (int i = 0; i < 2; i++) { Sex_Box.Items.Add($"{choises[i]}"); }
+
+        }
+
+        private void EndOfDetails_Click(object sender, RoutedEventArgs e)
+        {
+            /*
+            if(CityName_Box.Text == "" || StreetName_Box.Text == "" || HousNumber_Box.Text == "")
+            {
+                MessageBox.Show("חסר פרטים חייונים", "ERROR", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
+            else
+            {
+                new symptoms().Show();
+                this.Close();
+            }
+            */
             new symptoms().Show();
-            this.Close();   
+            this.Close();
+
         }
     }
 }
