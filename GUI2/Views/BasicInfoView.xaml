@@ -27,8 +27,16 @@
             <ColumnDefinition Width="65*"/>
             <ColumnDefinition Width="40*"/>
         </Grid.ColumnDefinitions>
-        <materialDesign:PackIcon Kind="Account" Grid.Row="1" Width="50" Height="50" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"></materialDesign:PackIcon>
-        <materialDesign:PackIcon Grid.Row="7" Grid.Column="1" Kind="GenderMaleFemale" Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <materialDesign:PackIcon Kind="Rename" Grid.Row="1"  Grid.Column="1" />
+        
+        <materialDesign:PackIcon Grid.Row="2" Grid.Column="1" Kind="AddressMarker" />
+        <materialDesign:PackIcon Grid.Row="3" Grid.Column="1" Kind="Numbers" />
+        <materialDesign:PackIcon Grid.Row="4" Grid.Column="1" Kind="City" />
+        <materialDesign:PackIcon Grid.Row="5" Grid.Column="1" Kind="Person" />
+        <materialDesign:PackIcon Grid.Row="6" Grid.Column="1" Kind="Phone" />
+        <materialDesign:PackIcon Grid.Row="7" Grid.Column="1" Kind="GenderMaleFemale" />
+        
+        
         <TextBox Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="שם"
                  materialDesign:HintAssist.HelperText="שדה זה הינו חובה"></TextBox>
         <TextBox Grid.Row="2" materialDesign:HintAssist.Hint="רחוב"
@@ -61,7 +69,11 @@
             <Setter Property="HorizontalAlignment" Value="Right"></Setter>
         </Style>
         <Style TargetType="materialDesign:PackIcon">
-            <Setter Property=""></Setter>
+            <Setter Property="Width" Value="50"></Setter>
+            <Setter Property="Height" Value="50"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            
         </Style>
     </UserControl.Resources>
 </UserControl>
