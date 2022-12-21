@@ -230,15 +230,5 @@ namespace GUI
                 MessageBox.Show(item.ToString());
             }
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var d = analysis.TryToDiagnose(symptomsList);
-            while(!d.IsFinalAnswer)
-            {
-                MessageBox.Show(d.Question);
-            }
-            MessageBox.Show(d.Question);
-        }
     }
 }
