@@ -7,4 +7,22 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <ItemGroup>
+      <None Remove="MainWindowPage.png" />
+      <None Remove="Symptoms.jpg" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Portable.BouncyCastle" Version="1.9.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Images\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="MainWindowPage.png" />
+      <Resource Include="Symptoms.jpg" />
+    </ItemGroup>
+
 </Project>
