@@ -2,5 +2,4 @@
 
 using Data_Analysis;
 
-Console.WriteLine("Hello, World!");
-FromDb a = new FromDb();
+FromDb db = new FromDb();

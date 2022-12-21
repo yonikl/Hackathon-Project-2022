@@ -32,7 +32,7 @@ namespace GUI
         string[] nameOfCheckBoxSbEN = { "without pain", "quick breathing", "None" };
         string[] nameOfCheckBoxCpEN = { "A familiar pain", "Unrecognized sudden pain", "Pressing pain in the chest", "stabbing pains between the shoulder blades", "None" };
         string[] nameOfCheckBoxWEN = { "general weakness", "extreme weakness"};
-        string[] nameOfCheckBoxSEN = { "Normal Sweating", "Cold Sweating"};
+        string[] nameOfCheckBoxSEN = { "Normal Sweating", "Cold Sweating", "increased sweating"};
         string[] nameOfCheckBoxPEN = { "Fast palpitations", "Fast palpitations and week" };
 
 
@@ -127,8 +127,18 @@ namespace GUI
                 childP.Visibility = Visibility.Visible;
                 childP.SelectionChanged += ChildPalpitations_SelectionChanged;
             }
-
         }
+
+        private void ImpairedConsciousness_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            // None, just: True / False.
+            if (NauseaAndVomiting.IsChecked == true)
+            {
+                symptomsList.Add("Impaired Consciousness");
+            }
+        }
+
+
 
 
         // ------------------------------------------->> Child CombobBox<<---------------------------------------------------
@@ -138,6 +148,7 @@ namespace GUI
             ComboBox? temp = this.FindName("ChildChestPain") as ComboBox;
             int insexCohise = temp.SelectedIndex;
             symptomsList.Add(nameOfCheckBoxCpEN[insexCohise]);
+           
         }
 
         private void ChildShortnessOfBreath_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -158,7 +169,6 @@ namespace GUI
         {
             ComboBox? temp = this.FindName("ChildSweating") as ComboBox;
             int insexCohise = temp.SelectedIndex;
-            MessageBox.Show(insexCohise.ToString());
             symptomsList.Add(nameOfCheckBoxSEN[insexCohise]);
         }
 
@@ -223,22 +233,59 @@ namespace GUI
             symptomsList.Remove(nameOfCheckBoxPEN[insexCohise]);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void cancelChoise_ImpairedConsciousness(object sender, RoutedEventArgs e)
         {
-            foreach (var item in symptomsList)
-            {
-                MessageBox.Show(item.ToString());
-            }
+            symptomsList.Remove("Impaired Consciousness"); 
         }
+
+        //------------------------------------------------->>  << ---------------------------------------------------
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
+            
+
+            if (symptomsList.Contains("None") && symptomsList.Contains("increased sweating"))
+            {
+                MessageBoxResult mbresult = MessageBox.Show("? האם יש לחולה חולשה","שאלה להעלת חשד", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                
+                if(mbresult== MessageBoxResult.Yes) 
+                {
+                    MessageBox.Show("חשד לטרשת עורקים --> לא מצריך נטן" ,"הודעת חירום", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    new MainWindow().Show();
+                    this.Close();
+                }
+            }
+
+            if (symptomsList.Contains("None") && symptomsList.Contains("Normal Sweating") && symptomsList.Contains("Pressing pain in the chest"))
+            {
+                MessageBoxResult mbresult = MessageBox.Show("? האם יש לחולה בחילות", "שאלה להעלת חשד", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (mbresult == MessageBoxResult.Yes)
+                {
+                    MessageBoxResult mbresult2 = MessageBox.Show("? האם לחולה יש חיוורון ", "שאלה נוספת ", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (mbresult2 == MessageBoxResult.Yes)
+                    {
+                        MessageBox.Show("חשד לתעוקת חזה לא יציבה  --> הזמן נטן", "הודעת חירום", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        new MainWindow().Show();
+                        this.Close();
+
+                    }
+                }
+            }
+
+
+
+            /*
             var d = analysis.TryToDiagnose(symptomsList);
             while(!d.IsFinalAnswer)
             {
                 MessageBox.Show(d.Question);
             }
             MessageBox.Show(d.Question);
+            */
         }
+
+
     }
 }
