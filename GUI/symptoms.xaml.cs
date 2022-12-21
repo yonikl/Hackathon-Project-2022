@@ -26,97 +26,73 @@ namespace GUI
             InitializeComponent();
         }
 
-        List<string> symptomsList = new List<string>(); 
+        List<string> symptomsList = new List<string>();
+        string[] nameOfCheckBoxSbEN = { "without pain", "quick breathing", "None" };
+        string[] nameOfCheckBoxCpEN = { "A familiar pain", "Unrecognized sudden pain", "Pressing pain in the chest", "stabbing pains between the shoulder blades", "None" };
+        string[] nameOfCheckBoxWEN = { "general weakness", "extreme weakness"};
+        string[] nameOfCheckBoxSEN = { "Normal Sweating", "Cold Sweating"};
+        string[] nameOfCheckBoxPEN = { "Fast palpitations", "Fast palpitations and week" };
+
+
+
+        /// <summary>
+        /// ChestPain symptoms.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChestPain_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            string[] nameOfCheckBox = { "כאב מוכר"
-                                        ,"כאב לא מוכר - כאב פתאומי גם במנוחה",
-                                        "כאב לוחץ בבית החזה לא משתנה במגע / נשימה / שינוי תנוחה" ,
-                                         " כאבים דוקרים / קורעים בין השכמות או במרכז בית החזה"};
             if (ChestPain.IsChecked == true)
             {
-                ComboBox? ChildOfChestPain = new ComboBox() { MinWidth = 100};
-                this.RegisterName("ChildChestPain", ChildOfChestPain);
-                ChildOfChestPain.HorizontalAlignment = HorizontalAlignment.Center;
-                for (int i = 0; i < 4; i++) { ChildOfChestPain.Items.Add($"{nameOfCheckBox[i]}"); }
-                options.Children.Add(ChildOfChestPain);
-                Grid.SetRow(ChildOfChestPain, 1);
-                ChildOfChestPain.SelectionChanged += ChildOfChestPain_SelectionChanged;
+                ComboBox? childCP = this.FindName("ChildChestPain") as ComboBox;
+                childCP.SelectionChanged += ChildOfChestPain_SelectionChanged;
+                childCP.Visibility = Visibility.Visible;
             }
         }
 
-        private void ChildOfChestPain_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            string[] nameOfCheckBoxEN = { "A familiar pain", "Unrecognized sudden pain", "Pressing pain in the chest", "stabbing pains between the shoulder blades" };
-            ComboBox? a = this.FindName("ChildChestPain") as ComboBox;
-            int insexCohise = a.SelectedIndex;
-            MessageBox.Show(insexCohise.ToString());
-            symptomsList.Add(nameOfCheckBoxEN[insexCohise]);
-        }
 
-        private void canselChoise_ChestPain(object sender, RoutedEventArgs e)
-        {
-
-            ComboBox? a1 = this.FindName("ChildChestPain") as ComboBox;
-            options.Children.Remove(a1);
-
-        }
-
-
+        /// <summary>
+        /// ShortnessOfBreath symptom.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void ShortnessOfBreath_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            string[] nameOfCheckBox = {  "ללא כאב"
-                                        ,"נשימה מהירה",
-                                         "רגיל" };
-
             if (ShortnessOfBreath.IsChecked == true)
             {
-                ComboBox? ShortnessOfBreath = new ComboBox() { MinWidth = 100};
-                this.RegisterName("ChildShortnessOfBreath", ShortnessOfBreath);
-                ShortnessOfBreath.HorizontalAlignment = HorizontalAlignment.Center;
-
-                for (int i = 0; i < 3; i++) { ShortnessOfBreath.Items.Add($"{nameOfCheckBox[i]}"); }
-                options.Children.Add(ShortnessOfBreath);
-                Grid.SetRow(ShortnessOfBreath, 2);
+                ComboBox? childSB = this.FindName("ChildShortnessOfBreath") as ComboBox;
+                childSB.Visibility = Visibility.Visible;
+                childSB.SelectionChanged += ChildShortnessOfBreath_SelectionChanged;
             }
         }
-
-
-
+        /// <summary>
+        /// Weakness symptom.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Weakness_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            string[] nameOfCheckBox = {"חולשה", "חולשה קיצונית"};
-
             if (Weakness.IsChecked == true)
             {
-                ComboBox? Weakness = new ComboBox() { MinWidth = 100};
-                this.RegisterName("ChildWeakness", Weakness);
-                Weakness.HorizontalAlignment = HorizontalAlignment.Center;
-
-                for (int i = 0; i < 2; i++) { Weakness.Items.Add($"{nameOfCheckBox[i]}"); }
-                options.Children.Add(Weakness);
-                Grid.SetRow(Weakness, 3);
+                ComboBox? childW = this.FindName("ChildWeakness") as ComboBox;
+                childW.Visibility = Visibility.Visible;
+                childW.SelectionChanged += ChildWeakness_SelectionChanged;
             }
         }
 
-
-
+        /// <summary>
+        /// Sweating symptom.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Sweating_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            string[] nameOfCheckBox = { "הזעה פשוטה"
-                                        ,"זיעה קרה",
-                                         "רגיל" };
-
             if (Sweating.IsChecked == true)
             {
-                ComboBox? Sweating = new ComboBox() { MinWidth = 100};
-                this.RegisterName("ChildSweating", Sweating);
-                Sweating.HorizontalAlignment = HorizontalAlignment.Center;
-
-                for (int i = 0; i < 3; i++) { Sweating.Items.Add($"{nameOfCheckBox[i]}"); }
-                options.Children.Add(Sweating);
-                Grid.SetRow(Sweating, 4);
+                ComboBox? childS = this.FindName("ChildSweating") as ComboBox;
+                childS.Visibility = Visibility.Visible;
+                childS.SelectionChanged += ChildSweating_SelectionChanged;
             }
         }
 
@@ -125,30 +101,132 @@ namespace GUI
         private void Paleness_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             // None, just: True / False.
+            if (Paleness.IsChecked == true)
+            {
+                symptomsList.Add("Paleness");
+            }
+
         }
 
         private void NauseaAndVomiting_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             // None, just: True / False.
+            if (NauseaAndVomiting.IsChecked == true)
+            {
+                symptomsList.Add("Nausea and Vomiting");
+            }
         }
 
         private void Palpitations_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            string[] nameOfCheckBox = { "דופק מהיר", "דןפק מהיר וחלש" };
-
-
-
             if (Palpitations.IsChecked == true)
             {
-                ComboBox? Palpitations = new ComboBox() { MinWidth = 100};
-                this.RegisterName("ChildPalpitations",Palpitations);
-                Palpitations.HorizontalAlignment = HorizontalAlignment.Center;
-
-                for (int i = 0; i < 2; i++) { Palpitations.Items.Add($"{nameOfCheckBox[i]}"); }
-                options.Children.Add(Palpitations);
-                Grid.SetRow(Palpitations, 7);
+                ComboBox? childP = this.FindName("ChildPalpitations") as ComboBox;
+                childP.Visibility = Visibility.Visible;
+                childP.SelectionChanged += ChildPalpitations_SelectionChanged;
             }
 
+        }
+
+
+        // ------------------------------------------->> Child CombobBox<<---------------------------------------------------
+
+        private void ChildOfChestPain_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox? temp = this.FindName("ChildChestPain") as ComboBox;
+            int insexCohise = temp.SelectedIndex;
+            symptomsList.Add(nameOfCheckBoxCpEN[insexCohise]);
+        }
+
+        private void ChildShortnessOfBreath_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox? temp = this.FindName("ChildShortnessOfBreath") as ComboBox;
+            int insexCohise = temp.SelectedIndex;
+            symptomsList.Add(nameOfCheckBoxSbEN[insexCohise]);
+        }
+
+        private void ChildWeakness_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox? temp = this.FindName("ChildWeakness") as ComboBox;
+            int insexCohise = temp.SelectedIndex;
+            symptomsList.Add(nameOfCheckBoxWEN[insexCohise]);
+        }
+
+        private void ChildSweating_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox? temp = this.FindName("ChildSweating") as ComboBox;
+            int insexCohise = temp.SelectedIndex;
+            MessageBox.Show(insexCohise.ToString());
+            symptomsList.Add(nameOfCheckBoxSEN[insexCohise]);
+        }
+
+        private void ChildPalpitations_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox? temp = this.FindName("ChildPalpitations") as ComboBox;
+            int insexCohise = temp.SelectedIndex;
+            symptomsList.Add(nameOfCheckBoxPEN[insexCohise]);
+        }
+
+
+        // ------------------------------------------->> Cancel Choise <<---------------------------------------------------
+        private void cancelChoise_ChestPain(object sender, RoutedEventArgs e)
+        {
+
+            ComboBox? temp = this.FindName("ChildChestPain") as ComboBox;
+            temp.Visibility = Visibility.Hidden;
+            int insexCohise = temp.SelectedIndex;
+            symptomsList.Remove(nameOfCheckBoxCpEN[insexCohise]);
+
+        }
+
+        private void cancelChoise_ShortnessOfBreath(object sender, RoutedEventArgs e)
+        {
+            ComboBox? temp = this.FindName("ChildShortnessOfBreath") as ComboBox;
+            temp.Visibility = Visibility.Hidden;
+            int insexCohise = temp.SelectedIndex;
+            symptomsList.Remove(nameOfCheckBoxSbEN[insexCohise]);
+        }
+
+        private void cancelChoise_Weakness(object sender, RoutedEventArgs e)
+        {
+            ComboBox? temp = this.FindName("ChildWeakness") as ComboBox;
+            temp.Visibility = Visibility.Hidden;
+            int insexCohise = temp.SelectedIndex;
+            symptomsList.Remove(nameOfCheckBoxWEN[insexCohise]);
+        }
+
+        private void cancelChoise_Sweating(object sender, RoutedEventArgs e)
+        {
+            ComboBox? temp = this.FindName("ChildSweating") as ComboBox;
+            temp.Visibility = Visibility.Hidden;
+            int insexCohise = temp.SelectedIndex;
+            symptomsList.Remove(nameOfCheckBoxSEN[insexCohise]);
+        }
+
+        private void cancelChoise_Paleness(object sender, RoutedEventArgs e)
+        {
+            symptomsList.Remove("Paleness");
+        }
+
+        private void cancelChoise_NauseaAndVomiting(object sender, RoutedEventArgs e)
+        {
+            symptomsList.Remove("Nausea and Vomiting");
+        }
+
+        private void cancelChoise_Palpitations(object sender, RoutedEventArgs e)
+        {
+            ComboBox? temp = this.FindName("ChildPalpitations") as ComboBox;
+            temp.Visibility = Visibility.Hidden;
+            int insexCohise = temp.SelectedIndex;
+            symptomsList.Remove(nameOfCheckBoxPEN[insexCohise]);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in symptomsList)
+            {
+                MessageBox.Show(item.ToString());
+            }
         }
     }
 }

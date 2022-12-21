@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="MainWindow" Height="350" Width="700">
+        Title="MainWindow" Height="370" Width="700">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/MainWindowPage.png" Opacity="0.6"/>
@@ -14,23 +14,27 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="40*"/>
-            <RowDefinition Height="500*"/>
+            <RowDefinition Height="450*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Label Content="פרטים אישיים" HorizontalAlignment="Right"  VerticalAlignment="Top" Grid.Row="0" FontSize="14" FontWeight="Bold" FontFamily="Britannic Bold"/>
-        <Button x:Name="EndOfDetails" Content="הבא" HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="2" Width="65" FontWeight="Bold" Click="EndOfDetails_Click" />
         <Label Content=": עיר" HorizontalAlignment="Left" Margin="616,24,0,0" Grid.Row="1" VerticalAlignment="Top" Width="70" Height="30" FontWeight="Bold" FontSize="14"/>
         <TextBox x:Name="CityName_Box" HorizontalAlignment="Left" Margin="481,24,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129" Height="25" FontSize="14"/>
         <Label Content=": רחוב" HorizontalAlignment="Left" Margin="615,59,0,0" Grid.Row="1" VerticalAlignment="Top" Width="70" Height="30" FontWeight="Bold" FontSize="14"/>
         <TextBox x:Name="StreetName_Box" HorizontalAlignment="Left" Margin="482,59,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129" Height="25" FontSize="14"/>
-        <Label Content=":טלפון" HorizontalAlignment="Left" Margin="615,166,0,0" Grid.Row="1" VerticalAlignment="Top" Width="70" Height="30" FontWeight="Bold" FontSize="14"/>
-        <TextBox x:Name="PhoneNumber_Box" HorizontalAlignment="Left" Margin="482,166,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129" Height="25" FontSize="14"/>
-        <Label Content=":מספר בית" HorizontalAlignment="Left" Margin="616,92,0,0" Grid.Row="1" VerticalAlignment="Top" Width="86" Height="30" FontWeight="Bold" FontSize="14"/>
-        <TextBox x:Name="HousNumber_Box" HorizontalAlignment="Left" Margin="482,132,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129" Height="25" FontSize="14"/>
+        <Label Content=":מספר בית" HorizontalAlignment="Left" Margin="615,91,0,0" Grid.Row="1" VerticalAlignment="Top" Width="86" Height="30" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.439,1.091"/>
+        <TextBox x:Name="HouseNumber_Box" HorizontalAlignment="Left" Margin="482,94,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129" Height="25" FontSize="14"/>
+
+        <Label Content=":טלפון" HorizontalAlignment="Left" Margin="615,206,0,0" Grid.Row="1" VerticalAlignment="Top" Width="70" Height="30" FontWeight="Bold" FontSize="14"/>
+        <TextBox x:Name="PhoneNumber_Box" HorizontalAlignment="Left" Margin="483,208,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129" Height="25" FontSize="14"/>
+        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Margin="483,133,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129" Height="25" FontSize="14"/>
         <Label Content=":שם" HorizontalAlignment="Left" Margin="615,130,0,0" Grid.Row="1" VerticalAlignment="Top" Width="86" Height="30" FontWeight="Bold" FontSize="14"/>
-        <TextBox x:Name="Name_Box" HorizontalAlignment="Left" Margin="482,94,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129" Height="25" FontSize="14"/>
-        <Label Content=":מין" HorizontalAlignment="Left" Margin="617,205,0,0" Grid.Row="1" VerticalAlignment="Top" Width="42" Height="30" FontWeight="Bold" FontSize="14"/>
-        <ComboBox x:Name="Sex_Box" HorizontalAlignment="Left" Margin="482,205,0,0" Grid.Row="1" VerticalAlignment="Top" Width="129" Height="25" SelectionChanged="Sex_Box_SelectionChanged"/>
+        <Label Content=":גיל" HorizontalAlignment="Left" Margin="616,163,0,0" Grid.Row="1" VerticalAlignment="Top" Width="86" Height="30" FontWeight="Bold" FontSize="14"/>
+        <TextBox x:Name="Age_Box" HorizontalAlignment="Left" Margin="483,168,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129" Height="25" FontSize="14"/>
+        <Label Content=":מין" HorizontalAlignment="Left" Margin="617,244,0,0" Grid.Row="1" VerticalAlignment="Top" Width="42" Height="30" FontWeight="Bold" FontSize="14"/>
+        <ComboBox x:Name="Sex_Box" HorizontalAlignment="Left" Margin="483,246,0,0" Grid.Row="1" VerticalAlignment="Top" Width="129" Height="25" SelectionChanged="Sex_Box_SelectionChanged"/>
+        <Button x:Name="EndOfDetails" Content="הבא" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Row="1" Width="82" FontWeight="Bold" Click="EndOfDetails_Click" Margin="597,284,0,0" />
+
     </Grid>
 </Window>
