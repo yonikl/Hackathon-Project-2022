@@ -19,4 +19,9 @@
       </COMReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="IronXL.Excel" Version="2022.12.10926" />
+      <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
+    </ItemGroup>
+
 </Project>

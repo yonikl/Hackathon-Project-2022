@@ -6,26 +6,77 @@ namespace Data_Analysis;
 
 public class Analysis
 {
-    private FromDb db = new FromDb();
+    private readonly FromDb _db = new FromDb();
+    private List<string>? _symptoms;
+    private IDictionary<string, int>? _prediction;
     public Amswer TryToDiagnose(List<string> symptoms)
     {
-        IDictionary<string, int> prediction = new Dictionary<string, int>();
-        foreach(var item in db.db) // initialize
+        this._symptoms = symptoms;
+        _prediction = new Dictionary<string, int>();
+        foreach(var item in _db.Db) // initialize
         {
-            prediction.Add(item.Key, 0);
+            _prediction.Add(item.Key, 0);
         }
 
-        foreach (var item in db.db)
+        foreach (var item in _db.Db)
         {
             foreach (var symptom in symptoms)
             {
                 if (item.Value.Contains(symptom))
                 {
-                    prediction[item.Key]++;
+                    _prediction[item.Key]++;
                 }
             }
+
+            foreach (var predict in _prediction)
+            {
+                _prediction[item.Key] /= _db.Db[item.Key].Count;
+            }
         }
-        Amswer s = new Amswer("esf");
-        return s;
+
+        Tuple<bool, string?> isTherePrediction = IsTherePrediction()!;
+        if (isTherePrediction.Item1)
+        {
+
+            return new Amswer(isTherePrediction.Item2!, isTherePrediction.Item1);
+        }
+        else
+        {
+            return new Amswer(NextQuestion());
+        }
+
+    }
+
+    private Tuple<bool, string?>? IsTherePrediction()
+    {
+        foreach (var item in _prediction!)
+        {
+            if (item.Value >= 0.9)
+            {
+                return new Tuple<bool, string?>(true, item.Key);
+            }
+            else
+            {
+                return new Tuple<bool, string?>(false, null);
+            }
+        }
+
+        return null;
+    }
+
+    private string NextQuestion()
+    {
+        
+        foreach (var item in _db.Distribution)
+        {
+            if (_symptoms!.Contains(item.Key))
+            {
+                continue;
+            }
+
+            return item.Key;
+        }
+
+        return "";
     }
 }

@@ -1,18 +1,21 @@
-﻿namespace Data_Analysis;
-using Microsoft.Office.Interop.Excel;
-using _Excel = Microsoft.Office.Interop.Excel;
+﻿using Excel = Microsoft.Office.Interop.Excel;
+
+namespace Data_Analysis;
+
 public class FromDb
 {
-    public IDictionary<string, List<string>> db { get; }
+    public IDictionary<string, List<string>> Db { get; }
+    public IDictionary<string,int[]> Distribution
+    {
+        get;
+    }
     public FromDb()
     {
-        string path = "";
-        _Application excel = new _Excel.Application();
-        Workbook wb;
-        Worksheet ws;
-        wb = excel.Worksheets.open(path);
-        ws = wb.Worksheets[Sheet];
+        Excel.Application xlApp = new Excel.Application();
+        Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(@"sandbox_test.xlsx");
+        Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
+        Excel.Range xlRange = xlWorksheet.UsedRange;
         IDictionary<string, List<string>> db = new Dictionary<string, List<string>>();
-        
+
     }
 }
