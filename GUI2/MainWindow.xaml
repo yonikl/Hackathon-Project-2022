@@ -19,9 +19,21 @@
             <DataTemplate DataType="{x:Type vms:BasicInfoViewModel}">
                 <views:BasicInfoView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:AdvanceDetailsViewModel}">
+                <views:AdvanceDetailsView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:LogsViewModel}">
+                <views:AdvanceDetailsView/>
+            </DataTemplate>
         </Grid.Resources>
-        <ContentControl
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="800"/>
+        </Grid.ColumnDefinitions>
+        <ContentControl Grid.Column="1"
             Content="{Binding CurrentViewModel}" />
+        <ContentControl Grid.Column="0"
+                        Content="{Binding SecondViewModel}" />
         
 
     </Grid>

@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace GUI2.Commands;
 
-internal abstract class BaseCommand : ICommand
+public abstract class BaseCommand : ICommand
 {
     public event EventHandler? CanExecuteChanged;
 

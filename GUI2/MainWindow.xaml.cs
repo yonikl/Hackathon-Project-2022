@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GUI2.Stores;
+using GUI2.ViewModels;
 
 namespace GUI2
 {
@@ -21,7 +22,7 @@ namespace GUI2
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow(NavigationStore navigationStore)
+        public MainWindow(NavigationStore navigationStore, LogsViewModel logsViewModel)
         {
             InitializeComponent();
         }

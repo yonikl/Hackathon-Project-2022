@@ -10,12 +10,23 @@ namespace GUI2.Stores;
 public class NavigationStore
 {
     private ViewModelBase? _currentViewModel;
+    private ViewModelBase? _secondViewModel;
     public ViewModelBase? CurrentViewModel
     {
         get => _currentViewModel;
         set
         {
             _currentViewModel = value;
+            OnCurrentViewModelChanged();
+        }
+    }
+
+    public ViewModelBase? SecondViewModel
+    {
+        get => _secondViewModel;
+        set
+        {
+            _secondViewModel = value;
             OnCurrentViewModelChanged();
         }
     }

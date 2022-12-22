@@ -1,0 +1,178 @@
+﻿<UserControl x:Class="GUI2.Views.AdvanceDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:GUI2"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="24"
+             mc:Ignorable="d"
+             d:DesignHeight="2000" d:DesignWidth="900">
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0">כאבים בחזה:</TextBlock>
+        <TextBlock Grid.Row="2">הזעה:</TextBlock>
+        <TextBlock Grid.Row="4">כאב מקרין:</TextBlock>
+        <TextBlock Grid.Row="6">חולשה:</TextBlock>
+        <TextBlock Grid.Row="8">קוצר נשימה:</TextBlock>
+        <TextBlock Grid.Row="10">סימפטומים כלליים:</TextBlock>
+
+        
+        <ListBox Grid.Row="1"
+                 
+                 x:Name="Selector1">
+            <ListBoxItem
+                IsSelected="True"
+                Content="ללא" 
+                />
+            <ListBoxItem
+                Content="לוחץ" 
+                x:Name="a"/>
+            <ListBoxItem
+                Content="דוקרים/קורעים" 
+                x:Name="b"/>
+            <ListBoxItem
+                Content="לוחץ שלא משתנה" 
+                x:Name="c"/>
+        </ListBox>
+        <ListBox Grid.Row="3"
+                 
+                 x:Name="Selector2">
+            <ListBoxItem
+                IsSelected="True"
+                Content="ללא" />
+            <ListBoxItem
+                Content="מוגברת" 
+                x:Name="d"/>
+            <ListBoxItem
+                Content="קרה" 
+                x:Name="e"/>
+        </ListBox>
+        <ListBox Grid.Row="5"
+                 
+                 x:Name="Selector3">
+            <ListBoxItem
+                IsSelected="True"
+                Content="ללא" />
+            <ListBoxItem
+                Content="קיים" 
+                x:Name="f"/>
+            <ListBoxItem
+                Content="כאב מקרין לאורך הגב או הצוואר"
+                x:Name="g"/>
+        </ListBox>
+        <ListBox Grid.Row="7"
+                 
+                 x:Name="Selector4">
+            <ListBoxItem
+                IsSelected="True"
+                Content="לא"
+                x:Name="_"/>
+            <ListBoxItem
+                Content="כן" 
+                x:Name="h"/>
+            <ListBoxItem
+                Content="חולשה קיצונית" 
+                x:Name="i"/>
+        </ListBox>
+        <ListBox Grid.Row="9"
+                 
+                 x:Name="Selector5">
+            <ListBoxItem
+                IsSelected="True"
+                Content="לא" 
+                x:Name="_5"/>
+            <ListBoxItem
+                Content="כן" 
+                x:Name="j"/>
+            <ListBoxItem
+                Content="כן מלווה בחרחורים ושיעול" 
+                x:Name="k"/>
+        </ListBox>
+        <ListBox Grid.Row="11"
+                 SelectionMode="Multiple"
+                 x:Name="Selector6">
+            <ListBoxItem
+                Content="כאב בבטן" 
+                x:Name="l"/>
+            <ListBoxItem
+                Content="מרגיש דפיקות לב" 
+                x:Name="m"/>
+            <ListBoxItem
+                Content="כאב מוכר" 
+                x:Name="n"/>
+            <ListBoxItem
+                Content="כאב חולף"
+                x:Name="o"/>
+            <ListBoxItem
+                Content="בחילות והקאות"
+                x:Name="p" />
+            <ListBoxItem
+                Content="חיוורון" 
+                x:Name="q"/>
+            <ListBoxItem
+                Content="נפיחות בטן"
+                x:Name="r"/>
+            <ListBoxItem
+                Content="בצקות בגפיים"
+                x:Name="s"/>
+            <ListBoxItem
+                Content="כאבים ברגליים או שיתוק" 
+                x:Name="t"/>
+            <ListBoxItem
+                Content="לחץ דם שונה בין הגפיים" 
+                x:Name="u"/>
+            <ListBoxItem
+                Content="כאב מופיע אחרי מאמץ/התרגשות" 
+                x:Name="v"/>
+            <ListBoxItem
+                Content="מילוי קפילרי איטי"
+                x:Name="w"/>
+            <ListBoxItem
+                Content="הגבלה ביכולת להתאמץ"
+                x:Name="x"/>
+        </ListBox>
+        <Grid Grid.Row="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Grid.Row="12" FontSize="30" Width="200" Height="50" Margin="15" Click="ButtonBase_OnClick"> אבחנה</Button>
+            <TextBlock Grid.Column="1" x:Name="Result" FontSize="30" TextWrapping="Wrap"></TextBlock>
+        </Grid>
+        
+        
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontSize" Value="50"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="20"/>
+                <Setter Property="FlowDirection" Value="RightToLeft"/>
+                <Setter Property="Foreground" Value="DarkRed"/>
+            </Style>
+            <Style TargetType="ListBox" BasedOn="{StaticResource MaterialDesignFilterChipPrimaryListBox}">
+                <Setter Property="SelectionMode" Value="Single"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                
+            </Style>
+        </Grid.Resources>
+    </Grid>
+</UserControl>

@@ -11,6 +11,7 @@ internal class MainViewModel : ViewModelBase
 {
     private readonly NavigationStore _navigationStore;
     public ViewModelBase? CurrentViewModel => _navigationStore.CurrentViewModel;
+    public ViewModelBase? SecondViewModel => _navigationStore.SecondViewModel;
     public MainViewModel(NavigationStore navigationStore)
     {
         this._navigationStore = navigationStore;

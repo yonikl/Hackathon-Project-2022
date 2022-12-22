@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUI", "GUI\GUI.csproj", "{249E2AD1-B821-41E3-BDD3-0B5E7464B7BE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{9C3C97C8-32C6-4E74-BCEB-ADFC55876A69}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data Analysis", "Data Analysis\Data Analysis.csproj", "{8E729A1E-91C7-4801-AB15-13E2F8D78696}"
@@ -19,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{249E2AD1-B821-41E3-BDD3-0B5E7464B7BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{249E2AD1-B821-41E3-BDD3-0B5E7464B7BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{249E2AD1-B821-41E3-BDD3-0B5E7464B7BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{249E2AD1-B821-41E3-BDD3-0B5E7464B7BE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9C3C97C8-32C6-4E74-BCEB-ADFC55876A69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9C3C97C8-32C6-4E74-BCEB-ADFC55876A69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C3C97C8-32C6-4E74-BCEB-ADFC55876A69}.Release|Any CPU.ActiveCfg = Release|Any CPU

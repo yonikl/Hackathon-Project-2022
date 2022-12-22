@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GUI2.Services;
 
-internal class NavigationService
+public class NavigationService
 {
     private readonly NavigationStore _navigationStore;
     private readonly Func<ViewModelBase> _createViewModel;

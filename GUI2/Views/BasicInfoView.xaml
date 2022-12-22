@@ -10,10 +10,9 @@
              TextElement.FontWeight="Medium"
              TextElement.FontSize="14"
              mc:Ignorable="d"
-             d:DesignHeight="1080" d:DesignWidth="1920">
+             d:DesignHeight="1800" d:DesignWidth="700">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -21,12 +20,15 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="65*"/>
-            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="20*"/>
         </Grid.ColumnDefinitions>
+        <TextBlock Grid.ColumnSpan="2" FlowDirection="RightToLeft" HorizontalAlignment="Center" FontSize="50" Foreground="Red">פרטים אישיים ראשוניים:</TextBlock>
         <materialDesign:PackIcon Kind="Rename" Grid.Row="1"  Grid.Column="1" />
         
         <materialDesign:PackIcon Grid.Row="2" Grid.Column="1" Kind="AddressMarker" />
@@ -34,43 +36,58 @@
         <materialDesign:PackIcon Grid.Row="4" Grid.Column="1" Kind="City" />
         <materialDesign:PackIcon Grid.Row="5" Grid.Column="1" Kind="Person" />
         <materialDesign:PackIcon Grid.Row="6" Grid.Column="1" Kind="Phone" />
-        <materialDesign:PackIcon Grid.Row="7" Grid.Column="1" Kind="GenderMaleFemale" />
+        <materialDesign:PackIcon Grid.Row="7" Grid.Column="1" Kind="Form" />
+        <materialDesign:PackIcon Grid.Row="8" Grid.Column="1" Kind="GenderMaleFemale" />
         
         
         <TextBox Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="שם"
-                 materialDesign:HintAssist.HelperText="שדה זה הינו חובה"></TextBox>
+                 Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Row="2" materialDesign:HintAssist.Hint="רחוב"
-                 materialDesign:HintAssist.HelperText="שדה זה הינו חובה"></TextBox>
+                 materialDesign:HintAssist.HelperText="שדה זה הינו חובה"
+                 Text="{Binding Street, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Row="3" materialDesign:HintAssist.Hint="מספר בית"
-                 materialDesign:HintAssist.HelperText="שדה זה הינו חובה"></TextBox>
+                 materialDesign:HintAssist.HelperText="שדה זה הינו חובה"
+                 Text="{Binding HouseNumber, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Row="4" materialDesign:HintAssist.Hint="עיר"
-                 materialDesign:HintAssist.HelperText="שדה זה הינו חובה"></TextBox>
+                 materialDesign:HintAssist.HelperText="שדה זה הינו חובה"
+                 Text="{Binding City, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Row="5" materialDesign:HintAssist.Hint="גיל"
-                 materialDesign:HintAssist.HelperText=""></TextBox>
-        <TextBox Grid.Row="6" materialDesign:HintAssist.Hint="טלפון"></TextBox>
-        <ListBox Grid.Row="7" FlowDirection="RightToLeft" Margin="50"
-            Style="{StaticResource MaterialDesignChoiceChipListBox}"
-            x:Name="RadioButtonGroupChoiceChip">
+                 materialDesign:HintAssist.HelperText="שדה זה הינו חובה"
+                 Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="6" materialDesign:HintAssist.Hint="טלפון"
+                 Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="7"
+            TextWrapping="Wrap"
+            AcceptsReturn="True"
+            VerticalScrollBarVisibility="Auto"
+            materialDesign:HintAssist.Hint="פרטים נוספים:"
+            Height="80"/>
+        <ListBox Grid.Row="8" FlowDirection="RightToLeft" Margin="20"
+            Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineListBox}"
+            x:Name="RadioButtonGroupChoiceChip"
+            SelectionChanged="RadioButtonGroupChoiceChip_OnSelectionChanged"
+            SelectionMode="Single">
             <ListBoxItem
                 Content="זכר" />
             <ListBoxItem
                 Content="נקבה" />
             
         </ListBox>
-        
+        <Button FontSize="70" Height="90" Width="1000" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Center" Margin="200 0 0 0" Command="{Binding GoToAdvanceDetailsCommand}" Click="ButtonBase_OnClick">הזעק</Button>
     </Grid>
     <UserControl.Resources>
         <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
             <Setter Property="MaxWidth" Value="500"></Setter>
             <Setter Property="MinWidth" Value="400"></Setter>
-            <Setter Property="Margin" Value="50"></Setter>
+            <Setter Property="Margin" Value="30"></Setter>
             <Setter Property="FlowDirection" Value="RightToLeft"></Setter>
             <Setter Property="FontSize" Value="30"></Setter>
             <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+            
         </Style>
         <Style TargetType="materialDesign:PackIcon">
             <Setter Property="Width" Value="50"></Setter>
-            <Setter Property="Height" Value="50"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
             <Setter Property="HorizontalAlignment" Value="Left"></Setter>
             

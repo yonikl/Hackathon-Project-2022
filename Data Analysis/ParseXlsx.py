@@ -1,7 +1,7 @@
 import openpyxl
 import json
 # Define variable to load the dataframe
-dataframe = openpyxl.load_workbook("C:\\Users\\Yoni\\RiderProjects\\Hackathon-Project-2022\\Hackathon-Project-2022\\Data Analysis\\diseases.xlsx")
+dataframe = openpyxl.load_workbook("C:\\Users\\Yoni\\RiderProjects\\Hackathon-Project-2022\\Hackathon-Project-2022\\Data Analysis\\DE.xlsx")
 
 # Define variable to read sheet
 dataframe1 = dataframe.active
@@ -16,7 +16,7 @@ for col in dataframe1.iter_cols(1, dataframe1.max_column):
 
 json_object = json.dumps(d)
 s = json_object.__str__()
-print(type(s))
+print(s)
 
 # Serializing json
 

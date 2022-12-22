@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Threading.Channels;
 using Excel = Microsoft.Office.Interop.Excel;
 using Newtonsoft.Json;
 
@@ -9,14 +10,16 @@ public class FromDb
     public IDictionary<string, List<string>> Db { get; }
     public IDictionary<string, int[]?> Distribution { get; }
     public List<string> DistributionPriority { get; }
+   
 
     public FromDb()
     {
         Distribution = new Dictionary<string, int[]?>();
         DistributionPriority = new List<string>();
-        run_cmd();
-        string json = File.ReadAllText("C:\\Users\\Yoni\\RiderProjects\\Hackathon-Project-2022\\Hackathon-Project-2022\\Data Analysis\\xl.txt");
-        json = json.ToLower();
+        //run_cmd();
+        string json =
+            File.ReadAllText(
+                "xl.txt");
         Db = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(json)!;
         foreach (var item in Db)
         {
@@ -48,12 +51,12 @@ public class FromDb
 
         DistributionPriority = SortPriority();
     }
-
+    /*
     private void run_cmd()
     {
 
         string fileName =
-            @"C:\Users\Yoni\RiderProjects\Hackathon-Project-2022\Hackathon-Project-2022\Data Analysis\ParseXlsx.py";
+            @"C:\Users\97253\Source\Repos\yonikl\Hackathon-Project-2022\Data Analysis\ParseXlsx.py";
 
         Process p = new Process();
         p.StartInfo =
@@ -69,7 +72,7 @@ public class FromDb
         p.WaitForExit();
         Console.WriteLine(output);
     }
-
+    */
     private List<string> SortPriority()
     {
         Dictionary<string, int[]?> dCopy = new Dictionary<string, int[]?>();
